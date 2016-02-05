@@ -1,0 +1,1 @@
+//Power Algorithm#include<stdio.h>int a,n,answer = 1;int power (int a, int n);int main () {    scanf("%d %d" ,a ,n);    printf("%d", power(a,n));    return 0;}int power (int a, int n) {        if(n==1)        return answer;    if (n%2==0) {        n/=2;        a*=a;    }    else{        answer*=a;        n--;    }    power(a,n);        }
