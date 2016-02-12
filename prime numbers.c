@@ -1,1 +1,0 @@
-// Sieve of Eurathsphen - Finding Prime numbers#include<stdio.h>for (i=0;i<=sqrt(n);i++) {    if (was[i]==false)        for(j=i*i ; j<=n ; j+=i)            was[j]==true;}
