@@ -1,0 +1,1 @@
+// Great Common Divisor#include<stdio.h>int GCD(int a,int b);int main () {        int a,b;        //printf("Enter the numbers\n");    scanf("%d %d", &a,&b);    printf("The GCD is = %d\n",GCD(a,b));    }int GCD(int a,int b){        if (a == 0 || b == 0)        return a+b;    else if (a > b)        return GCD(a%b , b);    else        return GCD(a , b%a);}
