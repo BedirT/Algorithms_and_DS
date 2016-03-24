@@ -1,0 +1,1 @@
+// RMQ Algorithms#include<stdio.h>int main () {        scanf("%d",&n);    while (n < z) {        z *= 2    }    for (i = z; i<z+n-1 ; i++) {        scanf("%d",tree[i]);    }    }int RMQ (int R,L) {    }
