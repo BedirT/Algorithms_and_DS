@@ -1,0 +1,1 @@
+//#include<stdio.h>int main () {        int i, j;        int arrayUp     [3][3];    int arrayDown   [3][3];    int arrayRight  [3][3];    int arrayLeft   [3][3];    int theGrid     [3][3] = { 1 , 2 , 0 ,                               3 , 0 , 3 ,                               0 , 0 , 2 }        int sum         [3][3];        }
