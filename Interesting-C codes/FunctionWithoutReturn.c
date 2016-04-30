@@ -1,1 +1,0 @@
-// Functions are working without their return type// this program will give a warning but still it will// work#include <stdio.h>fun(int x){    return x*x;}int main(void){    printf("%d", fun(10));    return 0;}

@@ -1,1 +1,0 @@
-// A Quine is a program that prints itself.// This is a shortest known quine in C.main() { char *s="main() { char *s=%c%s%c; printf(s,34,s,34); }"; printf(s,34,s,34); } 
