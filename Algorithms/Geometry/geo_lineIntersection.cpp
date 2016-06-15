@@ -41,17 +41,13 @@ int main () {
     point line2p1;
     point line2p2;
     
-    // Defining Line 1
-    line1p1.x = 2, line1p1.y = 8; // [2,8]
-    line1p2.x = 2, line1p1.y = 2; // [2,2]
-    
-    // Defining Line 2
-    line2p1.x = 0, line2p1.y = 4; // [0,4]
-    line2p2.x = 6, line2p2.y = 4; // [6,4]
+    // Inputs for points
+    cin >> line1p1.x >> line1p1.y >> line1p2.x >> line1p2.y;
+    cin >> line2p1.x >> line2p1.y >> line2p2.x >> line2p2.y;
     
     if ( segIntersect( line1p1, line1p2, line2p1, line2p2 ) )
-        cout << "YES" ;
+        cout << "YES" << endl ;
     else
-        cout << "NO" ;
+        cout << "NO" << endl ;
     
 }
