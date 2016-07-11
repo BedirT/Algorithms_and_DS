@@ -5,8 +5,8 @@
 #include <ctype.h>
 int main (){
     
-    char str2[100], str1[100];
-    int num1[100]={0}, num2[100]={0}, sum[101]={0};
+    char str2[101], str1[101];
+    int num1[101]={0}, num2[101]={0}, sum[101]={0};
     int lenghtOfSum, lenghtOfNum1, lenghtOfNum2;
     int i, x, hand=0;    
 
@@ -36,8 +36,6 @@ int main (){
     // SUM's Lenght //
   
     lenghtOfSum = (lenghtOfNum1 > lenghtOfNum2) ? lenghtOfNum1 : lenghtOfNum2 ;
-    
-    // this equals = if this statement is ? true , get this : false , get this
     
     /////////////////////////////////////////////////
     // SUM's value //
