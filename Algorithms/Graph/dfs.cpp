@@ -1,1 +1,41 @@
-#include<iostream>#include<vector>#include<stack>using namespace std;vector<int> nums[10001];void DFS (int start, int finish){        bool was[10001] = {false};    stack<int> tower;    int count = 0;    tower.push(start);        while (!tower.empty()) {                int a = tower.top();        tower.pop();        vector<int>::iterator i = nums[a].begin();        for (; i != nums[a].end(); ++i) {            if (!was[*i]) {                                cout << *i << " ";                count++;                if(*i == finish) return;                tower.push(*i);                was[*i] = true;                        }        }    }    cout << "Total Computations = " << count << endl;    }int main () {        int E, V, start, end, a, b;        cin >> V;    cin >> E;        for(int i=0;i<E;i++)    {        cin >> a >> b;        nums[a].push_back(b);        nums[b].push_back(a);        //non directed graph    }        cin >> start >> end;        DFS(start,end);        return 0;    }
+#include<vector>
+#include<iostream>
+using namespace std;
+
+vector<int> thisisvec[1001];
+
+bool was[10001];
+int start, finish;
+
+void dfs(int start){
+    
+    was[start] = true;
+    cout << start << " ";
+    
+    vector<int>::iterator i;
+    
+    //for (int i = 1; i <= ways[start].size(); ++i) {
+    for (i = thisisvec[start].begin(); i != thisisvec[start].end(); ++i) {
+        if (!was[*i]) {
+            dfs(*i);
+        }
+    }
+}
+
+
+int main (){
+    
+    int city, ways, a, b;
+    cin >> city >> ways;
+    
+    for (int i = 1; i <= ways; i++) {
+        cin >> a >> b;
+        thisisvec[a].push_back(b);
+        thisisvec[b].push_back(a);
+    }
+    
+    cin >> start >> finish;
+    
+    dfs(start);
+    
+}
