@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <stdlib.h>
-#include <assert.h>
+// https://www.hackerrank.com/challenges/correctness-invariant
+#include <iostream>
 
 void insertionSort(int N, int arr[]) {
     int i,j;
@@ -24,7 +21,7 @@ void insertionSort(int N, int arr[]) {
         printf(" ");
     }
 }
-int main(void) {
+int main() {
     
     int N;
     scanf("%d", &N);
