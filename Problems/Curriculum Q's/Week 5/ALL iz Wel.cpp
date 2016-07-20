@@ -1,1 +1,85 @@
-#include <iostream>#include <cstring>using namespace std;int t, i, j, r, c, a = 1, strt;char charr[10001];char goal[] = {'A','L','L','I','Z','Z','W','E','L','L'};bool was[1001], done;void BFS(int curr_loc, int a) {        i = curr_loc;    was[curr_loc] = true;    if (a == 10) { done = true; return;}    cout << "a = " << a << " charr[curr_loc] = " << charr[i] << " curr_loc = " << curr_loc << endl;    if(charr[i+1] == goal[a] && !was[i+1] && i % c != 0) BFS(i+1, a+1);    else if(charr[i-1] == goal[a] && !was[i-1] && i % c != 1) BFS(i-1, a+1);    else if(charr[i+c] == goal[a] && !was[i+c]) BFS(i+c, a+1);    else if(charr[i-c] == goal[a] && !was[i-c]) BFS(i-c, a+1);    else if(charr[i+c+1] == goal[a] && !was[i+c+1]) BFS(i+c+1, a+1);    else if(charr[i+c-1] == goal[a] && !was[i+c-1]) BFS(i+c-1, a+1);    else if(charr[i-c+1] == goal[a] && !was[i-c+1]) BFS(i-c+1, a+1);    else if(charr[i-c-1] == goal[a] && !was[i-c-1]) BFS(i-c-1, a+1);    else return;}int main() {        cin >> t;    while(t--){                done = false, a = 1 ;        memset (charr , ' ' , sizeof (charr));        memset (was , false, sizeof (was));        cin >> r >> c;                for (i = 1; i <= r*c; ++i){            cin >> charr[i];            if(charr[i] == goal[0]) strt = i;        }        BFS(strt, a);                if (done) cout << "YES" << endl;        else cout << "NO" << endl;    }        return 0;}
+#include<vector>
+#include<iostream>
+
+using namespace std;
+
+vector<int> thevec[101];
+
+int c, r, t;
+bool was[1001], done;
+int start;
+char goal[] = {'A','L','L','I','Z','Z','W','E','L','L'};
+char charr[1001];
+
+void dfs(int start, int a){
+    
+    was[start] = true;
+    cout << start << " ";
+    
+    if (a == 10) done = true;
+    
+    vector<int>::iterator i;
+    
+    for (i = thevec[start].begin(); i != thevec[start].end(); ++i) {
+        if (!was[*i] && charr[*i] == goal[a]) {
+            dfs(*i, a+1);
+        }
+    }
+}
+
+
+int main (){
+    
+    cin >> t;
+    
+    while (t--) {
+        
+        done = false;
+        memset (charr, ' ', sizeof (charr));
+        memset (was , false, sizeof (was));
+        
+        cin >> r >> c;
+        
+        for (int i = 1; i <= r*c; i++) {
+            cin >> charr[i];
+            if (charr[i] == 'A') start = i;
+            if(i % c != 1) {// First Column
+                thevec[i].push_back(i-1); // FC
+            }
+            if(i <= c*(r-1)) { // Last Row
+                thevec[i].push_back(i+c); // LR
+            }
+            if(i > c && i % c != 0) { // FR & LC
+                thevec[i].push_back(i-c+1); // LC & FR
+            }
+            if(i > c) { // First Row
+                thevec[i].push_back(i-c); // FR
+            }
+            if(i % c != 0) {// Last Column
+                thevec[i].push_back(i+1); // LC
+            }
+            if(i % c != 1 && i > c){ // FC & FR
+                thevec[i].push_back(i-c-1); // FC & FR
+            }
+            if(i % c != 1 && i <= c*(r-1)){ // FC & LR
+                thevec[i].push_back(i+c-1); // FC & LR
+            }
+            if(i % c != 0 && i <= c*(r-1)){
+                thevec[i].push_back(i+c+1); // LC & LR
+            }
+        }
+        
+//        for (int a = 1; a < r*c; a++) {
+//            for (vector<int>::iterator i = thevec[a].begin(); i != thevec[a].end(); ++i) {
+//                cout << a << " " << *i << endl;
+//            }
+//        }
+//        
+        
+        dfs(start, 1);
+        
+        if (done) cout << "YES" << endl;
+        else cout << "NO" << endl;
+        
+    }
+}
