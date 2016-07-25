@@ -1,7 +1,7 @@
 // https://www.hackerrank.com/challenges/floyd-city-of-blinding-lights/copy-from/24376815
 #include<iostream>
 #include<vector>
-#define INF 1000
+#define INF 999999
 using namespace std;
 int arr[405][405];
 int main () {
