@@ -1,14 +1,14 @@
 // Ford-Bellman
 #include<iostream>
 #include<vector>
-#define inf 0x7FFFFFFF
+#define inf 9999 // When I give max value -> 0X7FFFFFFF , it results ambigious numbers ?
 using namespace std;
 
 int ** arr, sz;
 
 struct node{
-    int cost = inf, from = 0;
-    bool val = false;
+    int cost, from;
+    bool val;
 };
 
 node * a;
@@ -21,16 +21,22 @@ void FBellman(){
     a[0].from = 0;
     a[0].val = false;
     
-    int count = sz;
+    for(i = 1; i < sz ; ++i){
+        a[i].cost = inf;
+        a[i].from = 0;
+        a[i].val = false;
+    }
+    
+    int count = sz-1;
     while (count--) {
         
         int min = inf;
         for (i = 0; i < sz; ++i)
-            if (min > a[i].cost && !a[i].val)
+            if (min > a[i].cost && (!a[i].val))
                 min = a[i].cost;
         
         for (i = 0; i < sz; ++i)
-            if (min == a[i].cost && !a[i].val)
+            if (min == a[i].cost && (!a[i].val))
                 break;
         
         for (j = 0; j < sz; ++j)
@@ -45,7 +51,7 @@ void FBellman(){
     
     cout << "Cost\tSource Node" << endl;
     for (int i = 0; i < sz; ++i)
-        cout << a[i].cost << "\t" << a[i].from;
+        cout << a[i].cost << "\t" << a[i].from << endl;
     
 }
 
