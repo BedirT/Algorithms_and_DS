@@ -1,59 +1,49 @@
 #include<iostream>
-#include<vector>
 #include<cstring>
-#define inf 100001
+#define inf 0x7fffffff
 using namespace std;
 
 int main () {
-
-    int n, m;
-    cin >> n >> m; // node & way
     
-    int d[n];
-    int adj[n][n];
-    for (int i = 1; i <= n; ++i) {
+    int n, m, s, a, b, k;
+    cin >> n >> m;
+    int arr[n+1][n+1];
+    bool was[n+1];
+    int d[n+1];
+    
+    for (int i = 0; i <= n; ++i) {
         d[i] = inf;
-        for (int j = 1; j <= n; ++j) {
-            adj[i][j] = 0;
-        }
+        was[i] = false;
     }
     
-    for (int i = 1; i <= m ; ++i) {
-        int a, b, c;
-        cin >> a >> b >> c; // from a to b -> length = c
-        adj[a][b] = c;
-        adj[b][a] = c;
+    memset(arr, -1, sizeof arr);
+    
+    for(int i = 0; i < m ; ++i){
+        cin >> a >> b >> k;
+        arr[a][b] = k;
     }
-    int curr;
+    cin >> s;
     
-    // Starting Point
-    cin >> curr;
+    d[s] = 0;
     
-    d[curr] = 0;
-    
-    int min, holder;
-    bool was[n];
-    memset(was, false, sizeof was);
-    
-    // HATALI KISIM /////////////
-    for(int j = 1 ; j <= n ; ++j){
-        was[curr] = true;
-        min = inf;
-        for(int i = 1 ; i <= n ; ++i){
-            // Probably here
-            if( adj[curr][i] != 0 && d[curr] + adj[curr][i] < d[i] )
-                d[i] = d[curr] + adj[curr][i];
-            if(!was[i] && d[i] < min) {
-                min = d[i];
-                holder = i;
-            }
-        }
-        curr = holder;
+    int ct = n;
+    while(ct--){
         
-    }////////////////////////////
+        for(int i = 0 ; i < n ; ++i)
+            if (arr[s][i] != -1 && d[i] > d[s] + arr[s][i])
+                d[i] = d[s] + arr[s][i];
+        
+        was[s] = true;
+        int min = inf;
+        for (int i = 0; i < n ; ++i)
+            if ( min > d[i] && !was[i]){
+                min = d[i];
+                s = i;
+            }
+    }
     
-    for(int i = 1 ; i <= n ; ++i)
-        cout << d[i] << " ";
-    cout << endl;
+    for (int i = 0; i < n; ++i) {
+        cout << d[i] << " " ;
+    }cout << endl;
     
 }
