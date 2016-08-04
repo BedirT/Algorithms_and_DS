@@ -32,25 +32,29 @@ int main () {
     cin >> n;
     
     int z = 1;
-    while(n < z)
+    while(n > z)
         z *= 2;
     
     for(int i = 0; i < 2*z; ++i){
         arr[i] = inf;
     }
     
-    for (int i = z-1; i <= z+n-2; ++i)
+    for (int i = z; i <= z+n-1; ++i)
         cin >> arr[i];
     
-    for (int i = z-2; i >= 0; --i)
-        arr[i] = min(2*i, 2*i+1);
+    for (int i = z-1; i >= 1; --i)
+        arr[i] = min(arr[2*i], arr[2*i+1]);
+    
+//    for (int i = 1; i <= z+n-1; ++i) {
+//                cout << arr[i] << " " ;
+//            }cout << endl;
     
     cin >> m;
     while (m--){
         cin >> s >> f;
         if(s > f)
             swap(s, f);
-        cout << RMQ(s, f) << endl;
+        cout << RMQ(s+z, f+z) << endl;
     }
     
 }
