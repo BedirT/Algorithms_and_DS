@@ -50,3 +50,4 @@ int main () {
     printf("LCM - a = 12, b = 21 - %d\n", LCM(12, 21));
     
 }
+
