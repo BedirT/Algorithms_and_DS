@@ -2,7 +2,7 @@
 #include<cstring>
 using namespace std;
 
-#define mxNUM 0x7fffffff
+#define mxNUM 100099
 
 string T, P;
 
@@ -41,8 +41,9 @@ int main(){
         memset(b, 0, sizeof(b));
         kmp_pre();
         if (KMP(T)){ key = m; break; }counter++;
-    
+        
     }
     
     cout << x / key << endl;
 }
+
