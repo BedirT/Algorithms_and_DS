@@ -1,40 +1,36 @@
-//Binary Search
+/*
+ Binary Search
+ */
 #include<iostream>
-#include<algorithm>
+#include<vector>
 
 using namespace std;
-int cmp (const void * a, const void * b)
+
+int binSearch(vector<int> v, int l, int r, int key)
 {
-    return ( *(int*)a - *(int*)b );
+    while (r-l > 1) {
+        int m = l + (r-l)/2;
+        if (v[m] >= key) r = m;
+        else l = m;
+    }
+    return r;
 }
 
-int binSearch(int * array, int l, int h, int key){
-    
-    int mid = (l+h)/2;
-    if(array[mid] == key)
-        return mid;
-    else if(array[mid] > key)
-        return binSearch(array, l, mid-1, key);
-    else if(array[mid] < key)
-        return binSearch(array, mid+1, h, key);
-    else return -1;
-    
-}
-int main () {
-    
+
+int main ()
+{
     int key, n;
     
     cin >> n >> key;
     
-    int array[n];
+    vector<int> vc(n);
     
     for (int i = 0 ; i < n ; i++)
-        cin >> array[i] ;
+        cin >> vc[i] ;
     
-    qsort(array, n, sizeof(int), cmp);
+    sort(vc.begin(), vc.end());
     
-    cout << binSearch(array, 0, n, key);
+    cout << binSearch(vc, -1, n-1, key) << endl;
     
     return 0;
-    
 }
