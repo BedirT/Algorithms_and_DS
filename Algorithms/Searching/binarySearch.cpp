@@ -15,7 +15,7 @@ int binSearch(int * array, int l, int h, int key){
         return mid;
     else if(array[mid] > key)
         return binSearch(array, l, mid-1, key);
-    else if(array[mid] > key)
+    else if(array[mid] < key)
         return binSearch(array, mid+1, h, key);
     else return -1;
     
