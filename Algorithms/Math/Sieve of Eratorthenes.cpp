@@ -1,21 +1,20 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 
-void sieveOfE(int n){
+void sieveOfE(bool was, int n){
     
     int i,j;
-    bool was[n];
-    memset(was, true, sizeof(was));
     
     for (i = 2; i*i <= n; i++)
-        if (was[i])
+        if (!was[i])
             for (j = i*i; j <= n ; j+=i )
-                was[j] = false;
+                was[j] = true;
     
-    for (i = 2; i <= n; i++)
-        if (was[i])
-            cout << i << " ";
+    // For Printing
+    // for (i = 2; i <= n; i++)
+    //     if (was[i])
+    //         cout << i << " ";
     
 }
 
@@ -23,7 +22,7 @@ int main() {
     
     int n;
     cin >> n; // The limit for us to search prime numbers
-    
-    sieveOfE(n);
+    bool was[n];
+    sieveOfE(was, n);
     
 }
