@@ -44,8 +44,8 @@ int main() {
         }
     }
     fout << week[6] << " ";
-    for (int i = 0; i < 6; ++i)
+    for (int i = 0; i < 5; ++i)
         fout << week[i] << " ";
-    fout << endl;
+    fout << week[5] << endl;
     return 0;
 }
