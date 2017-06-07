@@ -2,8 +2,8 @@
 	source: http://www.geeksforgeeks.org/union-find/
 	Topic: Here I implemented CYCLE DETECTION WITH UNION FIND. Algorithm works in
 	O(V) time (V for vertices). I will be adding improved version that works in 
-	O(logV) time -> link(). This algorithms as the tutorial explained will not work
-	for back edges.
+	O(logV) time -> link(https://github.com/BedirT/Algorithms_and_DS/blob/master/Algorithms/Graph/Cycle%20Detection%20-%20Union%20Find%20(Improved).cpp).
+	This algorithms as the tutorial explained will not work for back edges.
 	Author: BedirT
 */
 #include <iostream>
