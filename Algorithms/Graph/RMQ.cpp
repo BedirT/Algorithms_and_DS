@@ -6,6 +6,14 @@
 using namespace std;
 void create_Tree(int * tree, int sz, char op);
 
+void update (int i){
+    
+    while(i >= 1){
+        tree[i] += 1;
+        i /= 2;
+    }
+}
+
 int RMQ(int * tree, int L, int R){
     int ans = 0;
     
@@ -28,8 +36,8 @@ int RMQ(int * tree, int L, int R){
 int main () {
     
     int n, sz = 1;
-    cin >> n;
-    int tree[1001];
+    cin >> n >> k >> m;
+    int tree[200001];
     
     memset(tree, 0, sizeof tree);
     
@@ -37,19 +45,17 @@ int main () {
         sz *= 2;
     }
     //cout << sz << endl;
-    for(int i = sz; i <= sz+n-1; ++i)
-        cin >> tree[i];
+    for(int i = sz; i <= sz+n-1; ++i){
+        int a, b;
+        cin >> a >> b;
+        update(a)
+    }
     
     int s, f;
-    char operation; // +, -, /, *, u, d
-    cin >> operation;
     create_Tree(tree, sz, operation);   // + for sum - for sub / for div * for mult
                                         // d for min u for max
     int res;
     
-//    for (int i = 1; i <= sz+n-1; ++i) {
-//        cout << tree[i] << " " ;
-//    }cout << endl;
     if(operation == 'u') res = tree[1];
     else{
         cin >> s >> f;
