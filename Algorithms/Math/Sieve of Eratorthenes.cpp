@@ -2,9 +2,9 @@
 #include <algorithm>
 using namespace std;
 
-void sieveOfE(bool was, int n){
+void sieveOfE(bool was, long n){
     
-    int i,j;
+    long i,j;
     
     for (i = 2; i*i <= n; i++)
         if (!was[i])
@@ -20,9 +20,18 @@ void sieveOfE(bool was, int n){
 
 int main() {
     
-    int n;
+    long n;
     cin >> n; // The limit for us to search prime numbers
     bool was[n];
     sieveOfE(was, n);
+    for(int i = 0; i < n; ++i){
+        if(was[i]){
+            sum += i;
+            if(sum >= 2000000000) {
+                break;
+            }
+        }
+    }
+    cout << sum << endl;
     
 }
