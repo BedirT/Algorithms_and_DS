@@ -1,4 +1,3 @@
-// Modular Exponentiation (Power in Modular Aritmetic) (x^y)
 #include <iostream>
 using namespace std;
 
