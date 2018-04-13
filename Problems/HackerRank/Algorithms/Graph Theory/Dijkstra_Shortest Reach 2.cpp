@@ -14,7 +14,7 @@ int main() {
     while(t--){
         
         int n, m, s, a ,b, k;
-        cin >> n >> m;
+        scanf("%d %d", &n, &m);
         
         
         for(int i = 1 ; i <= n ; ++i){
@@ -25,7 +25,7 @@ int main() {
         memset(arr, -1, sizeof arr);
         
         for(int i = 0; i < m ; ++i){
-            cin >> a >> b >> k;
+            scanf("%d %d %d", &a, &b, &k);
             if(arr[a][b] > k || arr[a][b] == -1){
                 arr[a][b] = k;
                 arr[b][a] = k;
