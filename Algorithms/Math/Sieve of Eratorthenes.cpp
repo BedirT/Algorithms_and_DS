@@ -11,7 +11,7 @@ using namespace std;
 // n -> max number that I will check
 // marked -> bool arr, that I mark composite nums
 // primes -> vector that contains primes from 2->n
-void sieve(long n, bool * marked, vector<int> primes){
+void sieve(long n, bool * marked, vector<int> &primes){
 
 	// O(n*sqrt(n)) - but much more faster in real time
 	for (long i = 2; i <= n; ++i){ 	
