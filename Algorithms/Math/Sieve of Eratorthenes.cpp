@@ -36,6 +36,7 @@ int main() {
 	cin >> n;
 
 	bool marked[n+1];
+	memset(marked, false, sizeof marked);
 	vector<int> primes;
 
 	sieve(n, marked, primes);
