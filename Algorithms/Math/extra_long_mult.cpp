@@ -20,8 +20,8 @@ void extraLong (string str1, string str2) {
         for (j = 0; j < str1.size() ; ++j)
             mul[i+j] += num2[i] * num1[j];
     
-    for (i = 0; i < maxLen+1 ; ++i){
-        mul[i+1] += mul[i]/10;
+    for (i = maxLen; i > 0 ; --i){
+        mul[i-1] += mul[i]/10;
         mul[i] %= 10;
     }
     
