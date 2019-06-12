@@ -19,7 +19,7 @@ void sieve (int l, int h){
         }
     }
     
-    for (i = 2; i <= h ; ++i ) {
+    for (i = l; i <= h ; ++i ) {
         if (was[i]) cout << i << endl ;
     }
     
