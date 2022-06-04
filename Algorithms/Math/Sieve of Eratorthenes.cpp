@@ -42,4 +42,3 @@ int main() {
 	sieve(n, marked, primes);
 	printVector(primes);
 }
-
