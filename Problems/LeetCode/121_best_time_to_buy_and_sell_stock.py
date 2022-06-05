@@ -1,4 +1,5 @@
 class Solution:
+
     def maxProfit(self, prices: List[int]) -> int:
         my_min = 1e9
         mins = []
@@ -11,4 +12,3 @@ class Solution:
             if prices[i] - x > profit:
                 profit = prices[i] - x
         return profit
-            

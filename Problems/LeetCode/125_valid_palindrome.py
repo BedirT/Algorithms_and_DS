@@ -1,4 +1,5 @@
 class Solution:
+
     def isPalindrome(self, s: str) -> bool:
         new_s = ""
         for ch in s:
