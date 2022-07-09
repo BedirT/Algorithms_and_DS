@@ -2,8 +2,9 @@
 
 
 class Heap:
+
     def __init__(self, type='max', arr=None):
-        self.type = type # 'max' or 'min'
+        self.type = type  # 'max' or 'min'
         self.arr = arr if arr else []
         self.heapify()
 
@@ -13,11 +14,13 @@ class Heap:
         parent_idx = (idx - 1) // 2
         if self.type == 'max':
             if self.arr[idx] > self.arr[parent_idx]:
-                self.arr[idx], self.arr[parent_idx] = self.arr[parent_idx], self.arr[idx]
+                self.arr[idx], self.arr[parent_idx] = self.arr[
+                    parent_idx], self.arr[idx]
                 self._sift_up(parent_idx)
         elif self.type == 'min':
             if self.arr[idx] < self.arr[parent_idx]:
-                self.arr[idx], self.arr[parent_idx] = self.arr[parent_idx], self.arr[idx]
+                self.arr[idx], self.arr[parent_idx] = self.arr[
+                    parent_idx], self.arr[idx]
                 self._sift_up(parent_idx)
 
     def _sift_down(self, idx):
@@ -30,20 +33,24 @@ class Heap:
                 largest_idx = left_idx
             else:
                 largest_idx = idx
-            if right_idx < len(self.arr) and self.arr[right_idx] > self.arr[largest_idx]:
+            if right_idx < len(
+                    self.arr) and self.arr[right_idx] > self.arr[largest_idx]:
                 largest_idx = right_idx
             if largest_idx != idx:
-                self.arr[idx], self.arr[largest_idx] = self.arr[largest_idx], self.arr[idx]
+                self.arr[idx], self.arr[largest_idx] = self.arr[
+                    largest_idx], self.arr[idx]
                 self._sift_down(largest_idx)
         elif self.type == 'min':
             if left_idx < len(self.arr) and self.arr[left_idx] < self.arr[idx]:
                 smallest_idx = left_idx
             else:
                 smallest_idx = idx
-            if right_idx < len(self.arr) and self.arr[right_idx] < self.arr[smallest_idx]:
+            if right_idx < len(
+                    self.arr) and self.arr[right_idx] < self.arr[smallest_idx]:
                 smallest_idx = right_idx
             if smallest_idx != idx:
-                self.arr[idx], self.arr[smallest_idx] = self.arr[smallest_idx], self.arr[idx]
+                self.arr[idx], self.arr[smallest_idx] = self.arr[
+                    smallest_idx], self.arr[idx]
                 self._sift_down(smallest_idx)
 
     def heapify(self):
@@ -61,7 +68,7 @@ class Heap:
         if len(self.arr) == 0:
             return None
         return self.arr[0]
-    
+
     def pop(self):
         """
         Removes and returns the root element of the heap.

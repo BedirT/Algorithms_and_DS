@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+
     def traverse(self, root):
         if root is None:
             return "N"
@@ -12,7 +13,7 @@ class Solution(object):
         ans += self.traverse(root.left) if root.left else 'N'
         ans += self.traverse(root.right) if root.right else 'N'
         return ans
-        
+
     def isSameTree(self, p, q):
         """
         :type p: TreeNode
@@ -22,4 +23,3 @@ class Solution(object):
         a = self.traverse(p)
         b = self.traverse(q)
         return a == b
-        

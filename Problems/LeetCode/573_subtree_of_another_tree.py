@@ -5,6 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution(object):
+
     def traverse(self, root, add_to_sr):
         if root is None:
             return "N"
@@ -14,7 +15,7 @@ class Solution(object):
         if add_to_sr:
             self.all_subroots.add(ans)
         return ans
-    
+
     def isSubtree(self, root, subRoot):
         """
         :type root: TreeNode

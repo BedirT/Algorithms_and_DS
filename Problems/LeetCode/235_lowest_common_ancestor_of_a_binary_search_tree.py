@@ -5,13 +5,17 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
+
     def find(self, root, target):
         parents = [root]
         if root.val != target:
-            parents.extend(self.find(root.left if root.val > target else root.right, target))
-        return parents  
-    
+            parents.extend(
+                self.find(root.left if root.val > target else root.right,
+                          target))
+        return parents
+
     def lowestCommonAncestor(self, root, p, q):
         """
         :type root: TreeNode
